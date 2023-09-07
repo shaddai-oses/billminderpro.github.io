@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Login</title>
+</head>
+<body class="bg-black overflow-y-scroll">
+    <nav id="navbar" class=" fixed top-0 right-0 left-0 h-[5rem] backdrop-blur-md bg-neutral-900 bg-opacity-40 z-20">
+    </nav>
+
+<div class="flex flex-col items-center  justify-center h-screen relative bg-gradient-to-bl lg:bg-gradient-to-r from-[#0d0822] from-30% via-[#202E6E]  to-[#8CA1F1] backdrop-blur-2xl">
+        
+    <form  id="form" class=" flex flex-col w-3/4 gap-1 p-4 rounded-lg lg:w-2/4 backdrop-blur-sm bg-blue-950 bg-opacity-20 relative top-10 shadow-2xl shadow-black">
+        <h1 class="text-3xl text-white font-bold text-center">Login</h1>
+
+        <div class="flex flex-col gap-1">
+            <label for="email-input" class="font-bold text-white">Email : <span class="text-red-500">*</span></label>
+            <input type="text" 
+            name="email-input" 
+            id="email-input"
+            autocomplete="off" 
+            placeholder="example@gmail.com"
+            class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+        </div>
+
+        <div class="flex flex-col gap-1">
+            <label for="password-input" class="font-bold text-white">Password : <span class="text-red-500">*</span></label>
+            <input 
+            name="password-input" 
+            id="password-input" 
+            autocomplete="off" 
+            type="password"
+            class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base">
+            <p id="error-text" class="text-sm font-bold text-red-400">
+            </p>
+        </div>
+
+        <button 
+        id="form-btn"
+        class="bg-blue-900 font-bold rounded-full text-white p-2 hover:bg-blue-800 text-center transition ease-in-ou cursor-pointer"
+        >
+        Login
+        </button>
+    </form>
+
+    <div class="z-10 relative top-16 flex flex-col gap-2 items-center">
+            <p class="text-xs text-white font-semibold">You don't have an account?</p>
+            <a class="text-sm text-white font-semibold underline" href="/signup/">Signup</a>
+    </div>
+
+</div>
+
+<script type="module" src="/components/nav.js"></script>
+<script type="module" src="index.js"></script>
+
+</body>
+</html>

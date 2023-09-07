@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Signup business</title>
+</head>
+<body class="bg-gradient-to-bl lg:bg-gradient-to-r from-[#0d0822] from-30% via-[#202E6E]  to-[#8CA1F1] overflow-y-scroll">
+   
+    <nav id="navbar" class=" fixed top-0 right-0 left-0 h-[5rem] backdrop-blur-md bg-neutral-900 bg-opacity-40 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+<div class="flex flex-col items-center justify-center h-screen relative p-4 backdrop-blur-2xl">
+    <h1 class="md:text-2xl lg:text-3xl text-xl text-white font-bold text-center relative top-40 md:top-8 lg:top-8 pt-3">Create your business account</h1>
+
+    <!-- el formulario -->
+    <form  id="form" class="flex flex-col items-center  w-3/4 md:w-3/4 lg:2/4 justify-center lg:flex-row md:flex-row gap-4 relative top-28 md:top-0 lg:top-0 p-2">
+        <div class="flex flex-col p-4 rounded-lg backdrop-blur-sm bg-blue-950 bg-opacity-20 relative top-12 shadow-2xl shadow-black">
+            <div class="flex flex-col gap-1">
+                <label for="name-input" class="font-bold text-white text-sm md:text-base lg:text-base">Name and lastname: <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="name-input" 
+                id="name-input" 
+                autocomplete="off" 
+                placeholder="Maria Gonzalez"
+                class="rounded-full p-2 bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base ">
+                <p class="text-xs text-zinc-400">
+                    Both the first name and the last name should start with capital letters. 
+                </p>
+            </div>
+    
+            <div class="flex flex-col gap-1">
+                <label for="email-input" class="font-bold text-white text-sm md:text-base lg:text-base">Email: <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="email-input" 
+                id="email-input"
+                autocomplete="off" 
+                placeholder="example@gmail.com"
+                class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+                <p class="text-xs text-zinc-400">The email is required.</p>
+            </div>
+    
+            <div class="flex flex-col gap-1">
+                <label for="password-input" class="font-bold text-white text-sm md:text-base lg:text-base">Password: <span class="text-red-500">*</span></label>
+                <input 
+                name="password-input" 
+                id="password-input" 
+                autocomplete="off" 
+                type="password"
+                class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base">
+                <p class="text-xs text-zinc-400">
+                    It must have at least 1 capital letter, 1 number and at least 8 characters.
+                </p>
+            </div>
+    
+            <div class="flex flex-col gap-1">
+                <label for="match-input" class="font-bold text-white text-sm md:text-base lg:text-base">Match password: <span class="text-red-500">*</span></label>
+                <input 
+                name="match-input" 
+                id="match-input" 
+                autocomplete="off" 
+                type="password"
+                class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+                <p class="text-xs text-zinc-400">
+                    It must match the password.
+                </p>
+            </div>
+        </div>
+    
+<!-- otra parte del formulario -->
+        <div class="flex flex-col  gap-1 w-4/5 lg:w-2/4 p-4 rounded-lg backdrop-blur-sm bg-blue-950 bg-opacity-20 relative top-12 shadow-2xl shadow-black">
+                <div class="flex flex-col gap-1">
+                <label for="name-input" class="font-bold text-white text-sm md:text-base lg:text-base">Business name: <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="business-name-input" 
+                id="business-name-input" 
+                autocomplete="off" 
+                placeholder="Maria Gonzalez"
+                class="rounded-full p-2 bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base ">
+                </div>
+
+                <div class="flex flex-col gap-1">
+                <label for="business-email-input" class="font-bold text-white text-sm md:text-base lg:text-base">Business email: <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="business-email-input" 
+                id="business-email-input"
+                autocomplete="off" 
+                placeholder="example@gmail.com"
+                class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+                <p class="text-xs text-zinc-400">The email is required.</p>
+                </div>
+
+                <button 
+                id="form-btn"
+                disabled
+                class="bg-blue-900 font-bold rounded-full text-white text-sm md:text-base lg:text-base p-2 hover:bg-blue-800 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                Signup
+                </button>
+                <div class="z-10  flex flex-col gap-2 items-center">
+                    <p class="text-xs text-white font-semibold">Do you already have an account?</p>
+                    <a class="text-sm text-white font-semibold underline" href="/login/">Login</a>
+                </div>
+        </div>
+    </form>
+</div>
+
+<div id="loader">
+</div>
+
+
+
+<script type="module" src="/components/nav.js"></script>
+<script type="module" src="index.js"></script>
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+
+</body>
+</html>

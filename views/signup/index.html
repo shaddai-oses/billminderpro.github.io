@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Signup</title>
+</head>
+<body class="bg-black overflow-y-scroll">
+    <nav id="navbar" class=" fixed top-0 right-0 left-0 h-[5rem] backdrop-blur-md bg-neutral-900 bg-opacity-40 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+
+<div class="flex flex-col items-center  justify-center h-screen relative bg-gradient-to-bl lg:bg-gradient-to-r from-[#0d0822] from-30% via-[#202E6E]  to-[#8CA1F1] backdrop-blur-2xl">        
+    <form  id="form" class=" flex flex-col w-3/4 gap-1 p-4 rounded-lg lg:w-2/4 backdrop-blur-sm bg-blue-950 bg-opacity-20 relative top-12 shadow-2xl shadow-black">
+        <h1 class="md:text-2xl lg:text-3xl text-xl text-white font-bold text-center">Create account</h1>
+        <div class="flex flex-col gap-1">
+            <label for="name-input" class="font-bold text-white text-sm md:text-base lg:text-base">Name and lastname : <span class="text-red-500">*</span></label>
+            <input type="text" 
+            name="name-input" 
+            id="name-input" 
+            autocomplete="off" 
+            placeholder="Maria Gonzalez"
+            class="rounded-full p-2 bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base ">
+            <p class="text-xs text-zinc-400">
+                Both the first name and the last name should start with capital letters. 
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-1">
+            <label for="email-input" class="font-bold text-white text-sm md:text-base lg:text-base">Email : <span class="text-red-500">*</span></label>
+            <input type="text" 
+            name="email-input" 
+            id="email-input"
+            autocomplete="off" 
+            placeholder="example@gmail.com"
+            class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+            <p class="text-xs text-zinc-400">The email is required.</p>
+        </div>
+
+        <div class="flex flex-col gap-1">
+            <label for="password-input" class="font-bold text-white text-sm md:text-base lg:text-base">Password : <span class="text-red-500">*</span></label>
+            <input 
+            name="password-input" 
+            id="password-input" 
+            autocomplete="off" 
+            type="password"
+            class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base">
+            <p class="text-xs text-zinc-400">
+                It must have at least 1 capital letter, 1 number and at least 8 characters.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-1">
+            <label for="match-input" class="font-bold text-white text-sm md:text-base lg:text-base">Match password : <span class="text-red-500">*</span></label>
+            <input 
+            name="match-input" 
+            id="match-input" 
+            autocomplete="off" 
+            type="password"
+            class="rounded-full p-2  bg-blue-950 bg-opacity-75 text-white focus:outline-none text-sm md:text-base lg:text-base"">
+            <p class="text-xs text-zinc-400">
+                It must match the password.
+            </p>
+        </div>
+
+        <button 
+        id="form-btn"
+        disabled
+        class="bg-blue-900 font-bold rounded-full text-white text-sm md:text-base lg:text-base p-2 hover:bg-blue-800 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+        Signup
+        </button>
+    </form>
+
+    <div class="z-10 relative top-16 flex flex-col gap-2 items-center">
+        <p class="text-xs text-white font-semibold">Do you already have an account?</p>
+        <a class="text-sm text-white font-semibold underline" href="/login/">Login</a>
+    </div>
+
+
+    <div id="loader">
+    </div>
+
+</div>
+
+
+
+<script type="module" src="../components/nav.js"></script>
+<script type="module" src="index.js"></script>
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+
+
+</body>
+</html>
+

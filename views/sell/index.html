@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <title>Sell</title>
+</head>
+<body class="bg-black h-screen overflow-y-scroll">
+    
+    <!-- nav bar -->
+    <nav id="navbar" class=" fixed lg:top-0 bottom-0 right-0 left-0 h-16 backdrop-blur-md bg-neutral-900 bg-opacity-50 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+<div class=" pt-3 pb-24 lg:pb-4 lg:pt-24 flex flex-col items-center justify-center gap-4">
+
+<!-- titulo -->
+<div class="flex flex-row justify-between  pl-6 pr-6  w-full md:w-3/4 lg:w-3/4 relative">
+    <h1 class="text-3xl text-white font-bold">Sell</h1>
+    <div class="flex flex-col gap-1 rounded-lg backdrop-blur-lg w-1/2 justify-center absolute right-16 top-1">
+        <div class="flex relative">
+            <input type="text" class="bg-slate-700 text-white outline-none rounded-lg pl-2 pr-7 w-full">
+            <button class="absolute z-10 top-0 right-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                    <path class="pointer-events-none" d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z" />
+                    <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z" clip-rule="evenodd" />
+                </svg>                  
+            </button>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white pointer-events-none">
+        <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+    </svg>
+
+    <div id="products-added" class="flex flex-col p-2 gap-1 bg-[#1E1E1F] rounded-lg backdrop-blur-lg w-11/12 justify-center items-center absolute top-10 right- bg-opacity-30 z-10">
+        
+        <div class="w-3/4 flex flex-col items-center">
+        <h1 class="text-white font-medium">Products added</h1>
+        <select name="transporter" id="select-inventary" class="rounded-lg bg-slate-700 text-white outline-none w-full" >
+            <option class="outline-none" value="boxes">boxes</option>
+            <option  class="outline-none" value="unids">unids</option>
+        </select>
+        </div>
+
+        <ul id="ul-products-added" class="flex flex-col overflow-y-scroll max-h-40 w-full">
+            <li class="'flex flex-col border-b-[0.1rem] border-[#535355] p-1 pl-10 pr-24 relative">
+                <button class="absolute top-3 left-1">                   
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+                <div class="absolute top-3 right-2 flex flex-row justify-between w-1/5">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                        </svg>
+                        </button>   
+                        <p class="text-white">
+                            100
+                        </p>
+                        <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none"  fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm3 10.5a.75.75 0 000-1.5H9a.75.75 0 000 1.5h6z" clip-rule="evenodd" />
+                          </svg>
+                        </button> 
+                </div>    
+                <div class="flex gap-1">
+                    <h3 class="product-name text-white font-semibold text-lg">Mortadela</h3>
+                    <p class="brand text-white font-semibold text-lg">Plumrose</p>
+                    <p class="quantity-num text-white font-semibold text-lg">1</p>
+                    <p class="quantity-unit text-white font-semibold text-lg">kg</p>
+                </div>     
+                <div class=" flex flex-row gap-1">
+                <p class="text-white text-xs">Price:</p>
+                <p class="text-white text-xs">120 $</p>
+                </div>
+            </li>
+            <li class="'flex flex-col border-b-[0.1rem] border-[#535355] p-1 pl-10 pr-24 relative">
+                <button class="absolute top-3 left-1">                   
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+                <div class="absolute top-3 right-2 flex flex-row justify-between w-1/5">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                        </svg>
+                        </button>   
+                        <p class="text-white">
+                            100
+                        </p>
+                        <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none"  fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm3 10.5a.75.75 0 000-1.5H9a.75.75 0 000 1.5h6z" clip-rule="evenodd" />
+                          </svg>
+                        </button> 
+                </div>    
+                <div class="flex gap-1">
+                    <h3 class="product-name text-white font-semibold text-lg">Mortadela</h3>
+                    <p class="brand text-white font-semibold text-lg">Plumrose</p>
+                    <p class="quantity-num text-white font-semibold text-lg">1</p>
+                    <p class="quantity-unit text-white font-semibold text-lg">kg</p>
+                </div>     
+                <div class=" flex flex-row gap-1">
+                <p class="text-white text-xs">Price:</p>
+                <p class="text-white text-xs">120 $</p>
+                </div>
+            </li>
+            <li class="'flex flex-col border-b-[0.1rem] border-[#535355] p-1 pl-10 pr-24 relative">
+                <button class="absolute top-3 left-1">                   
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+                <div class="absolute top-3 right-2 flex flex-row justify-between w-1/5">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                        </svg>
+                        </button>   
+                        <p class="text-white">
+                            100
+                        </p>
+                        <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none"  fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm3 10.5a.75.75 0 000-1.5H9a.75.75 0 000 1.5h6z" clip-rule="evenodd" />
+                          </svg>
+                        </button> 
+                </div>    
+                <div class="flex gap-1">
+                    <h3 class="product-name text-white font-semibold text-lg">Mortadela</h3>
+                    <p class="brand text-white font-semibold text-lg">Plumrose</p>
+                    <p class="quantity-num text-white font-semibold text-lg">1</p>
+                    <p class="quantity-unit text-white font-semibold text-lg">kg</p>
+                </div>     
+                <div class=" flex flex-row gap-1">
+                <p class="text-white text-xs">Price:</p>
+                <p class="text-white text-xs">120 $</p>
+                </div>
+            </li>
+            <li class="'flex flex-col border-b-[0.1rem] border-[#535355] p-1 pl-10 pr-24 relative">
+                <button class="absolute top-3 left-1">                   
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+                <div class="absolute top-3 right-2 flex flex-row justify-between w-1/5">
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                        </svg>
+                        </button>   
+                        <p class="text-white">
+                            100
+                        </p>
+                        <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none"  fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm3 10.5a.75.75 0 000-1.5H9a.75.75 0 000 1.5h6z" clip-rule="evenodd" />
+                          </svg>
+                        </button> 
+                </div>    
+                <div class="flex gap-1">
+                    <h3 class="product-name text-white font-semibold text-lg">Mortadela</h3>
+                    <p class="brand text-white font-semibold text-lg">Plumrose</p>
+                    <p class="quantity-num text-white font-semibold text-lg">1</p>
+                    <p class="quantity-unit text-white font-semibold text-lg">kg</p>
+                </div>     
+                <div class=" flex flex-row gap-1">
+                <p class="text-white text-xs">Price:</p>
+                <p class="text-white text-xs">120 $</p>
+                </div>
+            </li>
+        </ul>
+
+        <div id="div-total" class="w-full flex flex-row justify-between items-center h-8 px-4">
+            <h1 class="text-white font-medium">Total</h1>
+            <p class="text-white font-medium" >1000$</p>
+        </div>
+
+        <a href="/sell-information/" class="p-1 rounded-lg bg-slate-700 text-white font-semibold w-full text-center">
+            Sell now
+        </a>
+
+    </div>
+</div>
+  
+ <!-- barra de productos -->
+<div class="flex flex-col w-11/12 md:w-3/4 lg:w-3/4 gap-1 p-4 items-center">
+    <div class="flex w-full gap-1">
+        <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+            <h2 class="text-white font-medium">Select</h2>
+            <select name="transporter" id="select-inventary" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                <option class="outline-none" id="all-option" value="All">All</option>
+                <option  class="outline-none" id="available" value="Available">Available</option>
+                <option  class="outline-none" id="descount" value="Descount">Descount</option>
+                <option  class="outline-none" id="out-of-stock-option" value="Out of stock">Out of stock</option>
+            </select>
+        </div>
+        
+        <div class="flex w-full gap-1">
+            <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                <h3 class="text-white font-medium text leading-[1rem]">
+                kind of product
+                </h3>
+                <select name="transporter" id="select-inventary" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                    <option class="outline-none">Cured Meats</option>
+                    <option  class="outline-none">Red Meats</option>
+                    <option  class="outline-none">White Meats</option>
+                    <option  class="outline-none">Vegetables</option>
+                    <option  class="outline-none">Dairy Products</option>
+                    <option  class="outline-none">Fruits</option>
+                    <option  class="outline-none">Grains and Cereals</option>
+                    <option  class="outline-none">Oils and Fats</option>
+                    <option  class="outline-none">Nuts</option>
+                    <option  class="outline-none">Beverages</option>
+                    <option  class="outline-none">Bakery products</option>
+                    <option  class="outline-none">Sauces</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- lista de productos -->
+<div class="flex flex-col w-full md:w-4/5 lg:w-4/5 gap-1 items-center p-4">
+
+    <div id="div-cured-meats" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Cured meats</h1>
+        <ul id="ul-cured-meats" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        <li class="'flex flex-col border-b-[0.1rem] border-[#535355] pl-8 p-2  pr-10 relative">
+            <a href="/product-page/" class="text-white">
+                <button class="absolute top-3 left-1">                   
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                      </svg>
+                </button>
+                <button class="absolute top-3 right-1">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-white pointer-events-none">
+                    <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                </svg>
+                </button>   
+                <div class="flex gap-1">
+                  <h3 class="product-name text-white font-semibold text-lg">Mortadela</h3>
+                  <p class="brand text-white font-semibold text-lg">Plumrose</p>
+                  <p class="quantity-num text-white font-semibold text-lg">1</p>
+                  <p class="quantity-unit text-white font-semibold text-lg">kg</p>
+                </div>     
+                <div class="flex gap-1 justify-between">
+                    <div class=" flex flex-row gap-1">
+                    <p class="text-white text-xs">Box price:</p>
+                    <p class="text-white text-xs">120 $</p>
+                    </div>
+                    <div class=" flex flex-row gap-1">
+                    <p class="text-white text-xs">Unid price:</p>
+                    <p class="text-white text-xs">5 $</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <div id="div-red-meats" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Red meats</h1>
+        <ul id="ul-red-meats" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-white-meats" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">White meats</h1>
+        <ul id="ul-white-meats" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-vegetables" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Vegetables</h1>
+        <ul id="ul-vegetables" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-dairy-products" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Dairy Products</h1>
+        <ul id="ul-dairy-products" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-fruits" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Fruits</h1>
+        <ul id="ul-fruits" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-grains-cereals" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Grains and Cereals</h1>
+        <ul id="ul-grains-cereals" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-oils-fats" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Oils and Fats</h1>
+        <ul id="ul-oils-fats" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-nuts" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Nuts</h1>
+        <ul id="ul-nuts" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-beverages" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Beverages</h1>
+        <ul id="ul-beverages" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-bakery-products" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Bakery Products</h1>
+        <ul id="ul-bakery-products" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+    <div id="div-sauces" class="flex-col gap-2 w-full  h-full p-4 ">
+        <h1 class="text-white text-lg font-medium">Sauces</h1>
+        <ul id="ul-sauces" class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg relative w-full justify-center">
+        </ul>
+    </div>
+
+</div>
+
+</div>
+
+<!-- en la pagina de ventas como conectar la tabla de usuarios y de productos y si luego hay 
+    que crear una tabla nueva donde se coloque la informacion del pedido donde si ya fue cobrado o no,
+     y tambien si ya fue entregado o no  -->
+
+    <div id="loader">
+    </div>
+
+<script type="module" src="../components/nav.js"></script>
+<!-- <script type="module" src="index.js"></script> -->
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+</body>
+</html>

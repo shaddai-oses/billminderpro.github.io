@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Register new product</title>
+</head>
+<body class="bg-black h-screen overflow-y-scroll">
+    
+       <!-- nav bar -->
+    <nav id="navbar" class=" fixed lg:top-0 bottom-0 right-0 left-0 h-16 backdrop-blur-md bg-neutral-900 bg-opacity-50 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+<div class=" pt-3 pb-24 lg:pb-4 lg:pt-24 flex flex-col items-center justify-center gap-2">
+
+        <h1 class="text-3xl text-white font-bold">New product</h1>
+
+        <form id="form" class="flex flex-col gap-1 w-4/5 md:w-2/3 lg:w-2/3 h-full p-4 items-center bg-[#1E1E1F] rounded-lg backdrop-blur-lg 1 ">
+
+            <!-- info product -->
+            <div class="flex flex-col lg:flex-row gap-1 w-full">
+                <div class="flex flex-col gap-1 p-2 justify-center w-full">
+                    <h3 class="text-white font-medium text leading-[1rem]">Product name: <span class="text-red-500">*</span></h3>
+                    <input type="text" 
+                    name="product-name-input" 
+                    id="product-name-input" 
+                    autocomplete="off" 
+                     class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                     <p class="text-xs text-zinc-400">
+                        The product name should consist of letters, numbers, and spaces only. It can have a maximum of 30 characters, including spaces.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                    <h3 class="text-white font-medium text leading-[1rem]">Description: <span class="text-red-500">*</span></h3>
+                    <input type="text" 
+                    name="description-input" 
+                    id="description-input" 
+                    autocomplete="off" 
+                    class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                    <p class="text-xs text-zinc-400">
+                        The description should consist of letters, numbers, and spaces only. It can have a maximum of 100 characters, including spaces.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                    <h3 class="text-white font-medium text leading-[1rem]">Brand: <span class="text-red-500">*</span></h3>
+                    <input type="text" 
+                    name="brand-input" 
+                    id="brand-input" 
+                    autocomplete="off" 
+                    class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                    <p class="text-xs text-zinc-400">
+                        The brand should consist of letters, numbers, and spaces only. It can have a maximum of 20 characters, including spaces.
+                    </p>
+                </div>
+            </div>
+
+            <!-- cantidad tipo de producto -->
+                <div class="flex gap-1 justify-center w-full ">
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">kind of product: <span class="text-red-500">*</span></h3>
+                        <select id="kind-product" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                            <option class="outline-none" value="select" disabled selected>Select</option>
+                            <option class="outline-none" value="Cured Meats">Cured Meats</option>
+                            <option  class="outline-none" value="Red Meats">Red Meats</option>
+                            <option  class="outline-none" value="White Meats">White Meats</option>
+                            <option  class="outline-none" value="Vegetables">Vegetables</option>
+                            <option  class="outline-none" value="Dairy Products">Dairy Products</option>
+                            <option  class="outline-none" value="Fruits">Fruits</option>
+                            <option  class="outline-none" value="Grains and Cereals">Grains and Cereals</option>
+                            <option  class="outline-none" value="Oils and Fats">Oils and Fats</option>
+                            <option  class="outline-none" value="Nuts">Nuts</option>
+                            <option  class="outline-none" value="Beverages">Beverages</option>
+                            <option  class="outline-none" value="Bakery products">Bakery products</option>
+                            <option  class="outline-none" value="Sauces">Sauces</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium">
+                        Quantity: <span class="text-red-500">*</span>
+                        </h3>
+                        <div class="flex gap-1">
+                            <input type="text" 
+                            name="quantity-input" 
+                            id="quantity-input" 
+                            autocomplete="off" 
+                            class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                            <select id="quantity-selected" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                            <option class="outline-none" value="select" disabled selected>Select</option>
+                                <option class="outline-none" value="mg">mg</option>
+                                <option  class="outline-none" value="ml">ml</option>
+                                <option  class="outline-none" value="Kg">Kg</option>
+                                <option  class="outline-none" value="L">L</option>
+                            </select>
+                        </div>
+                        <p class="text-xs text-zinc-400">
+                            Should be a number (0-9), 
+                             including up to 2 decimal places
+                        </p>
+                    </div>
+                </div>
+
+                <!-- cantidad productos y cajas -->
+                <div class="flex flex-col lg:flex-row gap-1 w-full">
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">How many products does it brig per box? (unids): <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="productBox-input" 
+                        id="productBox-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-xs text-zinc-400">
+                            Should be a whole number (0-9). <br>
+                             No decimal points or other characters are allowed.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">How many boxes?: <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="numberBox-input" 
+                        id="numberBox-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-xs text-zinc-400">
+                            Should be a whole number (0-9). <br>
+                             No decimal points or other characters are allowed.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- codigos productos-->
+                <div class="flex flex-col gap-1  bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full lg:w-3/4 justify-center lg:items-center p-2">
+                    <h3 class="text-white font-medium">Barcode: <span class="text-red-500">*</span></h3>
+                    <input type="text"
+                    name="barcode-input" 
+                    id="barcode-input" 
+                    autocomplete="off" 
+                    class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                    <p class="text-xs text-zinc-400">
+                        Should consist of 12 or 13 digits, space not allowed
+                    </p>
+                </div>
+
+                <!-- moneda e iva -->
+                <div class=" flex gap-1 w-full items-center">
+                    <div class="flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full">
+                        <h3 class="text-white font-medium">
+                        Currency: <span class="text-red-500">*</span>
+                        </h3>
+                            <select id="currency" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                            <option class="outline-none" value="select" disabled selected>Select</option>
+                                <option class="outline-none" value="dolar">$</option>
+                                <option  class="outline-none" value="bolivar">Bs</option>
+                                <option  class="outline-none" value="euro">€</option>
+                            </select>
+                    </div>
+                    <div class=" flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  justify-center w-full">
+                        <h3 class="text-white font-medium">Vat: <span class="text-red-500">*</span></h3>
+                        <select id="iva-selected" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                            <option class="outline-none" value="select" disabled selected>Select</option>
+                                <option class="outline-none" value="Yes">Yes</option>
+                                <option  class="outline-none" value="No">no</option>
+                            </select>
+                    </div>
+                </div>
+
+                <!-- precios box-->
+                <div class="flex flex-col lg:flex-row gap-1 w-full">
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Box Purchase price: <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="boxPrice-input" 
+                        id="boxPrice-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-xs text-zinc-400">
+                        Please enter the price of purchase per box. <br>
+                        Should be a whole number (0-9).
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Box Percentage of profit: <span class="text-red-500">*</span></h3>
+                        <div class="relative w-full">
+                        <input type="text"
+                        name="boxProfit-input" 
+                        id="boxProfit-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-white absolute top-0 right-2">%</p>
+                        </div>
+                        <p class="text-xs text-zinc-400">
+                            Enter the % of profit per box
+                        </p>
+                    </div>
+                </div>
+
+                <!--precios unid-->
+                <div class="flex flex-col lg:flex-row gap-1 w-full">
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Unid purchase price: <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="unidPrice-input" 
+                        id="unidPrice-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-xs text-zinc-400">
+                            Please enter the price of purchase per unid. <br>
+                             Should be a whole number (0-9) representing.
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Percentage of profit per unid: <span class="text-red-500">*</span></h3>
+                        <div class="w-full relative">
+                            <input type="text"
+                        name="unidProfit-input" 
+                        id="unidProfit-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                        <p class="text-white absolute top-0 right-2">%</p>
+                        </div>
+                        <p class="text-xs text-zinc-400">
+                            Enter the % of profit per unid
+                        </p>
+                    </div>
+                </div>
+
+                <!-- descuento -->
+                <div class=" flex gap-1 w-full items-center">
+                    <div class=" flex flex-col p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg justify-center w-full">
+                        <h3 class="text-white font-medium">
+                            Descount: <span class="text-red-500">*</span>
+                            </h3>
+                        <div class="flex gap-2 p-1">
+                            <div class="relative w-full">
+                            <input type="text" 
+                            name="descount-input" 
+                            id="descount-input" 
+                            autocomplete="off" 
+                            class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                            <p class="text-white absolute top-0 right-2">%</p>
+                            </div>
+                            <select id="descoun-selected" class="rounded-lg bg-slate-700 text-white outline-none w-full">
+                                <option class="outline-none" value="select" disabled selected>Select</option>
+                                <option class="outline-none" value="yes">yes</option>
+                                <option  class="outline-none" value="no">no</option>
+                            </select>
+                        </div>
+                        <p class="text-xs text-zinc-400">
+                            Enter the % of descount of the sale price
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- precio final con iva y descuento -->
+                <div class="flex flex-col lg:flex-row gap-1 w-full">
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Box sale price: <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="boxSale-input" 
+                        id="boxSale-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                    </div>
+                    <div class="flex flex-col gap-1 p-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg  w-full justify-center">
+                        <h3 class="text-white font-medium text leading-[1rem]">Sale price: <span class="text-red-500">*</span></h3>
+                        <input type="text"
+                        name="unidSale-input" 
+                        id="unidSale-input" 
+                        autocomplete="off" 
+                        class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                    </div>
+                </div>
+         
+            <button id="form-btn" disabled class="w-full text-white font-semibold bg-slate-700 hover:bg-slate-600 transition-all ease-in-out rounded-lg flex justify-center p-1 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                Register
+            </button>
+
+        </form>
+      
+</div>
+
+    <div id="loader">
+    </div>
+
+<script type="module" src="../components/nav.js"></script>
+<script type="module" src="index.js"></script>
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+</body>
+</html>

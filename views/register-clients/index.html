@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>New Client</title>
+</head>
+<body class="bg-black h-screen overflow-y-scroll">
+    
+       <!-- nav bar -->
+    <nav id="navbar" class=" fixed lg:top-0 bottom-0 right-0 left-0 h-16 backdrop-blur-md bg-neutral-900 bg-opacity-50 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+<div class=" pt-3 pb-24 lg:pb-4 lg:pt-24 flex flex-col items-center justify-center gap-4">
+
+    <!-- titulo -->
+    <h1 class="text-3xl text-white font-bold">Clients</h1>
+
+    <form  id="form" class=" flex flex-col  gap-4 p-4 rounded-lg w-4/5 md:w-2/3 lg:w-2/3 bg-[#1E1E1F]">
+        
+        <div class="flex flex-col md:flex-row lg:flex-row gap-2">
+            <div class="flex flex-col gap-1 w-full ">
+                <label for="name-input" class="text-white font-medium text leading-[1rem]">Name and lastname : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="name-input" 
+                id="name-input" 
+                autocomplete="off" 
+                placeholder="Maria Gonzalez"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">
+                    The first name and the last name <br> should start with capital letters. 
+                </p>
+            </div>
+    
+            <div class="flex flex-col gap-1 w-full">
+                <label for="email-input" class="text-white font-medium text leading-[1rem]">Email : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="email-input" 
+                id="email-input"
+                autocomplete="off" 
+                placeholder="example@gmail.com"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The email is required.</p>
+            </div>
+
+            <div class="flex flex-col gap-1 w-full">
+                <label for="phone-input" class="text-white font-medium text leading-[1rem]">Phone number : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="phone-input"
+                id="phone-input"
+                autocomplete="off" 
+                placeholder="0414-1029388"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The phone number is required.</p>
+            </div>
+        </div>
+
+        <div class="flex  gap-2 justify-center w-full">
+            <div class="flex flex-col gap-1 w-full">
+                <label for="id-input" class="text-white font-medium text leading-[1rem]">Id : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="id-input"
+                id="id-input"
+                autocomplete="off" 
+                placeholder="12.097.999"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The id is required.</p>
+            </div>
+            
+            <div class="flex flex-col gap-1 w-full">
+                <label for="rif-person-input" class="text-white font-medium text leading-[1rem]">Client rif : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="rif-person-input"
+                id="rif-person-input"
+                autocomplete="off" 
+                placeholder="J-12097999"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The rif is required.</p>
+            </div>
+        </div>
+    
+        <div class="flex flex-col md:flex-row lg:flex-row gap-2">
+            <div class="flex flex-col gap-1 w-full">
+                <label for="business-name-input" class="text-white font-medium text leading-[1rem]">Business name : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="business-name-input" 
+                id="business-name-input" 
+                autocomplete="off" 
+                placeholder="Maria Gonzalez"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">
+                    The first name and the last name <br> should start with capital letters. 
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-1 w-full">
+                <label for="business-rif-input" class="text-white font-medium text leading-[1rem]">Business rif : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="business-rif-input"
+                id="business-rif-input"
+                autocomplete="off" 
+                placeholder="J-12097999"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The business rif is required.</p>
+            </div>   
+
+            <div class="flex flex-col gap-1 w-full">
+                <label for="business-phone-input" class="text-white font-medium text leading-[1rem]">Business phone number : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="business-phone-input"
+                id="business-phone-input"
+                autocomplete="off" 
+                placeholder="0212-1029388"
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The phone number is required.</p>
+            </div>
+        </div>
+        
+        <div class="flex gap-2 justify-center w-full">
+            <div class="flex flex-col gap-1 w-full">
+                <label for="fiscal-address-input" class="text-white font-medium text leading-[1rem]">Fiscal address : <span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="fiscal-address-input"
+                id="fiscal-address-input"
+                autocomplete="off" 
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The fiscal address is required.</p>
+            </div>
+
+            <div class="flex flex-col gap-1 w-full">
+                <label for="delivery-address-input" class="text-white font-medium text leading-[1rem]">Delivery address :<span class="text-red-500">*</span></label>
+                <input type="text" 
+                name="delivery-address-input"
+                id="delivery-address-input"
+                autocomplete="off" 
+                class="bg-slate-700 text-white outline-none rounded-lg pl-2 w-full">
+                <p class="text-xs text-zinc-400">The delivery address is required.</p>
+            </div>
+        </div>
+
+        <button 
+        id="form-btn"
+        disabled
+        class="w-full text-white font-semibold bg-slate-700 hover:bg-slate-600 transition-all ease-in-out rounded-lg flex justify-center p-1 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+        Register
+        </button>
+    </form>
+
+        
+</div>
+
+
+
+    <div id="loader">
+    </div>
+
+<script type="module" src="../components/nav.js"></script>
+<script type="module" src="index.js"></script>
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+</body>
+</html>

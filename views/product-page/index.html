@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Product information</title>
+</head>
+<body class="bg-black h-screen overflow-y-scroll">
+    
+       <!-- nav bar -->
+    <nav id="navbar" class=" fixed lg:top-0 bottom-0 right-0 left-0 h-16 backdrop-blur-md bg-neutral-900 bg-opacity-50 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24  left-0 right-0 z-20">
+    </div>
+
+<div id="all" class=" pt-3 pb-24 lg:pb-0 lg:pt-24 flex flex-col items-center justify-center gap-2">
+        <h1 class="text-3xl text-white font-bold">Product</h1>
+</div>
+
+    <div id="loader">
+    </div>
+
+<script type="module" src="../components/nav.js"></script>
+<script type="module" src="index.js"></script>
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+</body>
+</html>

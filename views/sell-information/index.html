@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <title>Sell information</title>
+</head>
+<body class="bg-black h-screen overflow-y-scroll">
+    
+    <!-- nav bar -->
+    <nav id="navbar" class=" fixed lg:top-0 bottom-0 right-0 left-0 h-16 backdrop-blur-md bg-neutral-900 bg-opacity-50 z-20">
+    </nav>
+
+    <div id="notification" class="fixed top-24 left-0 right-0 z-20">
+    </div>
+
+    <div class=" pt-3 pb-24 lg:pb-4 lg:pt-24 flex flex-col gap-4 lg:flex-row md:flex-row">
+
+        <!-- Confirmation sell -->
+    <div class="flex flex-col justify-center items-center w-full md:w-1/2 lg:w-1/2 p-4 gap-4">
+        <div class="flex flex-row justify-between  pl-6 pr-6  w-full">
+            <h1 class="text-3xl text-white font-bold">Confirmation</h1>
+    
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+            </svg>
+        </div>
+
+        <div id="products-added" class="flex flex-col p-2 gap-1 bg-[#1E1E1F] rounded-lg backdrop-blur-lg w-11/12 justify-center items-center">
+            
+            <div class="flex items-center gap-4">
+                <h1 class="text-white font-medium">Products added</h1>
+                <p class="text-white font-medium">Boxes</p>
+            </div>
+
+            <ul id="ul-products-added" class="flex flex-col overflow-y-scroll max-h-72 w-full">
+                <li class="'flex flex-col border-b-[0.1rem] border-[#535355] p-1 pl-10 pr-24 items-center relative">
+                    <button class="absolute top-2 left-1">                   
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                            <path class="pointer-events-none" fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+                            </svg>
+                    </button>
+                    <div class="flex flex-row justify-between gap-4 w-full ">
+                        <div class="flex flex-col md:flex-row lg:flex-row gap-1">
+                            <div class="flex gap-1">
+                                <h3 class="product-name text-white font-semibold text-lg leading-3">Mortadela</h3>
+                                <p class="brand text-white font-semibold text-lg leading-3">Plumrose</p>
+                            </div>
+                            <div class="flex gap-1">
+                            <p class="quantity-num text-white font-semibold text-lg leading-3">1</p>
+                            <p class="quantity-unit text-white font-semibold text-lg leading-3">kg</p>
+                            </div>
+                        </div>   
+                        <div class="flex items-center justify-around gap-1">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                                    <path class="pointer-events-none" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z" clip-rule="evenodd" />
+                                </svg>
+                            </button>   
+                                <p class="text-white">
+                                    100
+                                </p>
+                            <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                                <path class="pointer-events-none"  fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm3 10.5a.75.75 0 000-1.5H9a.75.75 0 000 1.5h6z" clip-rule="evenodd" />
+                            </svg>
+                            </button> 
+                        </div> 
+                    </div>     
+                    <div class=" flex flex-row gap-1 py-1">
+                    <p class="text-white text-xs">Price:</p>
+                    <p class="text-white text-xs">120 $</p>
+                    </div>
+                </li>              
+            </ul>
+
+            <div id="div-total" class="w-full flex flex-row justify-between items-center h-8 px-4">
+                <h1 class="text-white font-medium">Total</h1>
+                <p class="text-white font-medium" >1000$</p>
+            </div>
+
+            <a href="/sell-information/" class="p-1 rounded-lg bg-slate-700 text-white font-semibold w-full text-center">
+                Sell now
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- metodos de pago  y actualizacion del delivery-->
+    <div class="flex flex-col items-center w-full md:w-1/2 lg:w-1/2 p-4 gap-4">
+
+        <!-- actualizacion del proceso -->
+        <h1 class="text-3xl text-white font-bold">Procescing the delivery</h1>
+        <div class="flex p-4 bg-[#1E1E1F] h-14 md:h-10 lg:h-10 rounded-lg backdrop-blur-lg w-5/6 justify-center items-center relative">
+            <div class="absolute top-0 flex-row flex w-full">
+                <div class="flex flex-col items-center relative w-full justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                    </svg>
+                    <h3 class="text-white font-bold absolute top-6 leading-3">Send</h3>
+                </div>
+            
+                <div class="flex flex-col items-center relative w-full justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                    </svg>              
+                    <h3 class="text-white font-bold absolute top-6 leading-3 text-center">On its way</h3>
+                </div>
+        
+                <div class="flex flex-col items-center relative w-full justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819" />
+                    </svg>                         
+                    <h3 class="text-white font-bold absolute top-6 leading-3">Delivered</h3>
+                </div>
+        
+                <div class="flex flex-col items-center relative w-full justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white pointer-events-none">
+                        <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>                                     
+                    <h3 class="text-white font-bold absolute top-6 leading-3">Paid</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- metodos de pago -->
+        <h1 class="text-2xl text-white font-bold">Pay methods</h1>
+        <div class="flex flex-col p-2 gap-2 bg-[#1E1E1F] rounded-lg backdrop-blur-lg w-2/3 justify-center">
+            <div class="flex justify-between border-b-[0.1rem] border-[#535355] p-1">
+                <div class=" flex gap-1 items-center pl-4">
+                    <h1 class=" text-white font-bold justify-center">Pago movil</h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>              
+                    </div>
+                    <button class=" bg-slate-700 rounded-lg p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pointer-events-none text-white">
+                            <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                          </svg>                  
+                    </button>
+            </div>
+            
+            <div class="flex justify-between border-b-[0.1rem] border-[#535355] p-1">
+            <div class="flex gap-1 items-center pl-4">
+            <h1 class=" text-white font-bold">Cash</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+              </svg>
+            </div>
+            <button class=" bg-slate-700 rounded-lg p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pointer-events-none text-white">
+                    <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>                  
+            </button>
+            </div>
+
+            <div class="flex justify-between border-b-[0.1rem] border-[#535355] p-1">
+            <div class=" flex gap-1 items-center pl-4">
+            <h1 class=" text-white font-bold">Transfer</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+              </svg>
+            </div>
+            <button class="bg-slate-700 rounded-lg p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pointer-events-none text-white">
+                    <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>                  
+            </button>
+            </div>
+
+            <div class="flex justify-between border-b-[0.1rem] border-[#535355] p-1">
+            <div class=" flex gap-1 items-center pl-4">
+            <h1 class=" text-white font-bold">Paypal</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+              </svg>
+            </div>
+            <button class="bg-slate-700 rounded-lg p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pointer-events-none text-white">
+                    <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>                  
+            </button>
+            </div>
+
+            <div class="flex justify-between border-b-[0.1rem] border-[#535355] p-1">
+            <div class=" flex gap-1 items-center pl-4"">
+            <h1 class=" text-white font-bold">Zelle</h1>  
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>              
+            </div>
+            <button class="bg-slate-700 rounded-lg p-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 pointer-events-none text-white">
+                    <path class="pointer-events-none" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>                  
+            </button>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    </div>
+
+
+    <div id="loader">
+    </div>
+
+<script type="module" src="../components/nav.js"></script>
+<!-- <script type="module" src="index.js"></script> -->
+<script type="module" src="../components/notification.js"></script>
+<script type="module" src="../components/loader.js"></script>
+</body>
+</html>
